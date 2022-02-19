@@ -1,13 +1,23 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import {
   addUserToEvent,
   addUser,
   setUserStatus,
+  getUserStatus
 } from "../services/database/functions";
+
 
 const MainPage = () => {
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const navigate = useNavigate();
+
+  const moveToPayment = (email, phoneNumber) => {
+    addUser(email, phoneNumber);
+    addUserToEvent(email, phoneNumber);
+    navigate(`/${email}/payment`)
+  }
 
   return (
     <div>
@@ -26,10 +36,7 @@ const MainPage = () => {
       />
       <br />
       <button
-        onClick={() => {
-          addUserToEvent(email, phoneNumber);
-          addUser(email, phoneNumber);
-        }}
+        onClick={() =>  moveToPayment(email, phoneNumber)}
       >
         Buy
       </button>
