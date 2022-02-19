@@ -18,7 +18,7 @@ const LoginPage = () => {
       console.log(res);
 
       if (res == 1) {
-        sessionStorage.setItem("loggged", 1);
+        sessionStorage.setItem("logged", 1);
         navigate('/stream')
       } else {
         setLoginError("Opps, you have no access to this event ^_^");
