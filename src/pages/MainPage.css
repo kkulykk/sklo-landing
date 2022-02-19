@@ -1,0 +1,192 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.main-content > * {
+  height: 100vh;
+}
+
+.header-holder {
+  height: 9vh;
+}
+header {
+  height: 8vh;
+  width: -webkit-fill-available;
+  padding: 5px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  position: fixed;
+  top: 0;
+}
+
+.navigation-items {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 14px;
+}
+
+.navigation-item-secondary {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  margin: 5px 20px;
+  text-decoration: none;
+  color: black;
+}
+
+.navigation-item-primary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  width: 90px;
+  margin: 0 15px;
+  background-color: black;
+  border-radius: 30px;
+  border: none;
+  color: white;
+  font-weight: bold;
+}
+
+.screen-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.screen-1-title {
+  font-weight: 700;
+  font-size: 100;
+  width: 45vw;
+  text-align: center;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.screen-1-cta {
+  height: 40px !important;
+  width: 160px !important;
+  margin: 10px;
+  background-color: black;
+  border-radius: 30px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.screen-3-container {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.big-photo {
+  flex: 1;
+  height: 91vh;
+  width: 100%;
+  object-fit: cover;
+  background-color: violet;
+}
+
+.subscreens-title {
+  margin-bottom: 3vh;
+}
+
+.screen-3-text-content {
+  flex: 1;
+  padding-left: 8%;
+}
+
+.speaker-description {
+  width: 60%;
+}
+
+.schedule-items {
+  display: flex;
+  flex-direction: row;
+}
+
+.screen-4-container {
+  height: 100%;
+  display: flex;
+  margin-top: 20vh;
+  align-items: center;
+  flex-direction: column;
+}
+
+#register {
+  background-color: black;
+}
+.schedule-description {
+  width: 40vw;
+  text-align: center;
+  margin-bottom: 5vh;
+}
+
+.payment-title {
+  margin-bottom: 3vh;
+  color: white;
+}
+
+.payment-description {
+  width: 100%;
+  color: white;
+}
+.checkout-button {
+  height: 40px;
+  width: 160px;
+  margin: 10px;
+  background-color: white;
+  border-radius: 30px;
+  border: none;
+  color: black;
+  cursor: pointer;
+}
+
+.screen-5-container {
+  padding: 0 8%;
+  margin: 0 auto;
+  margin-top: 35vh;
+  display: flex;
+  justify-content: space-between;
+  width: 50vw;
+  align-items: center;
+}
+.screen-5-texts {
+  width: 300px;
+  margin-right: 30px;
+}
+.payment-input {
+  padding: 0 15px;
+  height: 40px;
+  width: 220px;
+  margin: 5px;
+  background-color: white;
+  border-radius: 10px;
+  border: none;
+  color: black;
+}
+
+.screen-5-payment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
