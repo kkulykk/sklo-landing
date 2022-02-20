@@ -1,0 +1,13 @@
+.player {
+  background-color: lightgray;
+  aspect-ratio: 16 / 9;
+  width: 70vw;
+}
+.stream-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 50px;
+  height: 100vh;
+}

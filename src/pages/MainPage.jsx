@@ -1,36 +1,53 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import {
   addUserToEvent,
   addUser,
   setUserStatus,
-  getUserStatus
+  getUserStatus,
 } from "../services/database/functions";
 import ScheduleItem from "../components/ScheduleItem";
 import "./MainPage.css";
 
-
 const MainPage = () => {
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [inputFieldsError, setInputFieldsError] = useState("Handle this output");
+  const [inputFieldsError, setInputFieldsError] = useState("");
   const navigate = useNavigate();
 
-  const moveToPayment = async (email, phoneNumber) => {
-    try {
-      const res = await getUserStatus(email);
-      if (res === 1) {
-        navigate(`/login`)
-      } else {
-        addUser(email, phoneNumber);
-        addUserToEvent(email, phoneNumber);
-        navigate(`/${email}/payment`)
-      }
-    } catch (err) {
-      console.log()
+  const validateEntries = (email, phone) => {
+    if (email === "" && phone === "") {
+      setInputFieldsError("Enter email and phone number");
+      return false;
+    } else if (email === "") {
+      setInputFieldsError("Enter email");
+      return false;
+    } else if (phone === "") {
+      setInputFieldsError("Enter phone");
+      return false;
+    } else {
+      setInputFieldsError("");
+      return true;
     }
+  };
 
-  }
+  const moveToPayment = async (email, phoneNumber) => {
+    if (validateEntries(email, phoneNumber)) {
+      try {
+        const res = await getUserStatus(email);
+        if (res === 1) {
+          navigate(`/login`);
+        } else {
+          addUser(email, phoneNumber);
+          addUserToEvent(email, phoneNumber);
+          navigate(`/${email}/payment`);
+        }
+      } catch (err) {
+        console.log();
+        setInputFieldsError("The purchase cannot be proceeded");
+      }
+    }
+  };
 
   return (
     <div>
@@ -173,7 +190,7 @@ const MainPage = () => {
               >
                 Proceed to checkout
               </button>
-              <p style={{ color: "#ffffff"}}>{inputFieldsError}</p>
+              <p style={{ color: "#ffffff" }}>{inputFieldsError}</p>
             </div>
           </div>
         </div>

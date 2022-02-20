@@ -1,24 +1,25 @@
-import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom';
-import "./StreamPage.css"
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import "./StreamPage.css";
 
 const StreamPage = () => {
   const navigate = useNavigate();
   const [logged, setLogged] = useState();
 
   useEffect(() => {
-    const logged = JSON.parse(sessionStorage.getItem('logged'));
-    setLogged(logged)
+    const logged = JSON.parse(sessionStorage.getItem("logged"));
+    setLogged(logged);
 
     if (logged !== 1) {
-        navigate("/login")
+      navigate("/login");
     }
-  }, [])
+  }, []);
   return (
-    <div>StreamPage
-        {logged}
+    <div className="stream-page">
+      <h1>Stream</h1>
+      <div className="player"></div>
     </div>
-  )
-}
+  );
+};
 
-export default StreamPage
+export default StreamPage;
