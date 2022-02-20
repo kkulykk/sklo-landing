@@ -13,12 +13,23 @@ import "./MainPage.css";
 const MainPage = () => {
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [inputFieldsError, setInputFieldsError] = useState("Handle this output");
   const navigate = useNavigate();
 
-  const moveToPayment = (email, phoneNumber) => {
-    addUser(email, phoneNumber);
-    addUserToEvent(email, phoneNumber);
-    navigate(`/${email}/payment`)
+  const moveToPayment = async (email, phoneNumber) => {
+    try {
+      const res = await getUserStatus(email);
+      if (res === 1) {
+        navigate(`/login`)
+      } else {
+        addUser(email, phoneNumber);
+        addUserToEvent(email, phoneNumber);
+        navigate(`/${email}/payment`)
+      }
+    } catch (err) {
+      console.log()
+    }
+
   }
 
   return (
@@ -162,6 +173,7 @@ const MainPage = () => {
               >
                 Proceed to checkout
               </button>
+              <p style={{ color: "#ffffff"}}>{inputFieldsError}</p>
             </div>
           </div>
         </div>
